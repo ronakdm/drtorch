@@ -1,2 +1,3 @@
 # drtorch
-A package for distributionally robust optimization in PyTorch.
+
+This is a development repo for `diropt`: a package for distributionally robust optimization in PyTorch.

@@ -31,12 +31,18 @@ classifiers = [
 ]
 dependencies = [
   "absl-py>=0.7.1",
+  "numba>=0.58.1",
   "numpy>=1.21",
   "torch>=1.6",
-  "numba>=0.58.1"
 ]
 
 [project.optional-dependencies]
+examples=[
+  "jupyterlab>=4.1",
+  "matplotlib>=3.5.0",
+  "torchvision>=0.15", 
+]
+
 docs = [
     "sphinx>=6.0.0",
     "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme

@@ -1,8 +1,20 @@
+"""Functions for implementing the pool adjacent violators (PAV) algorithm using just-in-time compilation."""
 import numpy as np
+import numpy.typing as npt
 from numba import jit
 
 @jit(nopython=True)
-def l2_centered_isotonic_regression(losses, spectrum):
+def l2_centered_isotonic_regression(losses: npt.NDArray[np.float32], spectrum: npt.NDArray[np.float32]):
+    """Solution to the isotonic regression problem when using the centered $\ell_2$ loss.
+    
+    Args:
+      spectrum: a Numpy array containing the spectrum weights, which should be the same length as the batch size.
+      losses: a Numpy array containing the loss on each example in the batch. These are the labels for isotonic regression.
+    
+    Returns:
+      sample_weight
+        a set of $n$ weights on each training example in the batch.
+    """
     n = len(losses)
     means = [losses[0] + 1 / n - spectrum[0]]
     counts = [1]
@@ -33,9 +45,19 @@ def l2_centered_isotonic_regression(losses, spectrum):
     return sol
 
 
-# TODO: Find work around for jit with KL penalty.
-# @jit(nopython=True)
-def neg_entropy_centered_isotonic_regression(losses, spectrum):
+
+@jit(nopython=True)
+def neg_entropy_centered_isotonic_regression(losses: npt.NDArray[np.float32], spectrum: npt.NDArray[np.float32]):
+    """Solution to the isotonic regression problem when using the centered negative entropy loss.
+    
+    Args:
+      spectrum: a Numpy array containing the spectrum weights, which should be the same length as the batch size.
+      losses: a Numpy array containing the loss on each example in the batch. These are the labels for isotonic regression.
+    
+    Returns:
+      sample_weight
+        a set of $n$ weights on each training example in the batch.
+    """
     n = len(losses)
     logn = np.log(n)
     log_spectrum = np.log(spectrum)
@@ -56,8 +78,11 @@ def neg_entropy_centered_isotonic_regression(losses, spectrum):
                 lse_log_spectrum.pop(),
                 end_points.pop(),
             )
-            new_lse_loss = np.logaddexp(lse_losses[-1], prev_lse_loss)
-            new_lse_log_spectrum = np.logaddexp(lse_log_spectrum[-1], prev_lse_log_spectrum)
+            # TODO: Find work around: the more numerically stable functions do not work with jit.
+            # new_lse_loss = np.logaddexp(lse_losses[-1], prev_lse_loss)
+            # new_lse_log_spectrum = np.logaddexp(lse_log_spectrum[-1], prev_lse_log_spectrum)
+            new_lse_loss = np.log(np.exp(lse_losses[-1]) + np.exp(prev_lse_loss))
+            new_lse_log_spectrum = np.log(np.exp(lse_log_spectrum[-1]) + np.exp(prev_lse_log_spectrum))
             means[-1] = new_lse_loss - new_lse_log_spectrum - logn
             lse_losses[-1], lse_log_spectrum[-1] = new_lse_loss, new_lse_log_spectrum
             end_points[-1] = prev_end_point

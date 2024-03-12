@@ -22,7 +22,7 @@ def make_spectral_risk_measure(
 
     Returns:
       compute_sample_weight
-        a function that maps $n$ losses to a vector of $n$ weights on each training example.
+        a function that maps ``n`` losses to a vector of ``n`` weights on each training example.
     """
     return partial(spectral_risk_measure_maximization_oracle, spectrum, shift_cost, penalty)
 
@@ -45,11 +45,11 @@ def spectral_risk_measure_maximization_oracle(
 
     Returns:
       sample_weight
-        a vector of $n$ weights on each training example.
+        a vector of ``n`` weights on each training example.
     """
-    if shift_cost < 1e-16:
+    if shift_cost < 1e-12:
         return torch.from_numpy(spectrum[np.argsort(np.argsort(losses))])
-    n = len(losses)
+    sample_size = len(losses)
     scaled_losses = losses / shift_cost
     perm = np.argsort(losses)
     sorted_losses = scaled_losses[perm]
@@ -65,9 +65,9 @@ def spectral_risk_measure_maximization_oracle(
     inv_perm = np.argsort(perm)
     primal_sol = primal_sol[inv_perm]
     if penalty == "chi2":
-        q = scaled_losses - primal_sol + 1 / n
+        q = scaled_losses - primal_sol + 1 / sample_size
     elif penalty == "kl":
-        q = np.exp(scaled_losses - primal_sol) / n
+        q = np.exp(scaled_losses - primal_sol) / sample_size
     else:
         raise NotImplementedError
     return torch.from_numpy(q).float()

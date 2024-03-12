@@ -38,6 +38,7 @@ dependencies = [
 
 [project.optional-dependencies]
 examples=[
+  "tqdm>=4.66",
   "jupyterlab>=4.1",
   "matplotlib>=3.5.0",
   "torchvision>=0.15", 
@@ -45,7 +46,7 @@ examples=[
 
 docs = [
     "sphinx>=6.0.0",
-    "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme
+    "sphinx_book_theme>=1.0.1",
     "sphinxcontrib-katex",
     "sphinx-autodoc-typehints",
     "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error

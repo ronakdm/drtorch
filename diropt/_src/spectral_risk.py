@@ -12,14 +12,14 @@ def make_spectral_risk_measure(
         shift_cost: float=0.0,
     ):
     """Create a function which computes the sample weights from a vector of losses when using a spectral risk measure ambiguity set.
-    
+ 
     Args:
       spectrum: a Numpy array containing the spectrum weights, 
         which should be the same length as the batch size.
       penalty: either 'chi2' or 'kl' indicating which f-divergence 
         to use as the dual regularizer.
       shift_cost: ehe non-negative dual regularization parameter.
-    
+
     Returns:
       compute_sample_weight
         a function that maps $n$ losses to a vector of $n$ weights on each training example.
@@ -33,16 +33,16 @@ def spectral_risk_measure_maximization_oracle(
         losses: np.ndarray
     ):
     """Maximization oracle to compute the sample weights based on a particular spectral risk measure objective.
-    
+
     Args:
       spectrum: a Numpy array containing the spectrum weights, 
         which should be the same length as the batch size.
-      shift_cost: ehe non-negative dual regularization parameter.
-      penalty: either 'chi2' or 'kl' indicating which f-divergence
+      shift_cost: a non-negative dual regularization parameter.
+      penalty: either ``chi2`` or ``kl`` indicating which f-divergence
         to use as the dual regularizer.
       losses: a Numpy array containing the loss incurred by the model
         on each example in the batch.
-    
+
     Returns:
       sample_weight
         a vector of $n$ weights on each training example.

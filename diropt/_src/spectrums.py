@@ -42,7 +42,7 @@ def make_extremile_spectrum(n: int, n_draws: float):
     
     Args:
       n: the batch size.
-      n_draws: the number of independent draws from the 
+      n_draws: the number of independent draws from the
         loss vector to make the equality above true. It can be fractional.
     TODO(ronakdm): what inequality above?
     

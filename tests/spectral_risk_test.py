@@ -14,13 +14,12 @@ class SpectralRiskTest(absltest.TestCase):
 
   def test_spectral_risk(self):
     test_func = spectral_risk.spectral_risk_measure_maximization_oracle
-
     batch_size = 30
-    losses = np.ones(batch_size)
     uniform = [1. / batch_size for _ in range(batch_size)]
 
-    for penalty in ["chi2"]:
+    for penalty in ["chi2", "kl"]:
 
+      losses = np.ones(batch_size)
       spectrum = spectra.make_extremile_spectrum(batch_size, 2.0)
       weights = [elem.item() for elem in test_func(spectrum, 1.0, penalty, losses)]
       self.assertSequenceAlmostEqual(weights, uniform, places=6)

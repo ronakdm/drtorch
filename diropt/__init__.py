@@ -17,6 +17,6 @@ __all__ =[
   "make_esrm_spectrum",
   "make_extremile_spectrum",
   "make_spectral_risk_measure",
-  "make_superquantile_spectrum"
+  "make_superquantile_spectrum",
   "spectral_risk_measure_maximization_oracle",
 ]

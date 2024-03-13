@@ -31,6 +31,7 @@ def make_superquantile_spectrum(batch_size: int, tail_prob: float):
         spectrum[idx:] = 1 / (batch_size - idx)
     return spectrum
 
+
 def make_extremile_spectrum(batch_size: int, n_draws: float):
     """Create a spectrum based on the extremile for ``n`` samples.
 
@@ -43,8 +44,7 @@ def make_extremile_spectrum(batch_size: int, n_draws: float):
     Args:
       batch_size: the batch size.
       n_draws: the number of independent draws from the
-        loss vector to make the equality above true. It can be fractional.
-    TODO(ronakdm): what inequality above?
+        loss vector. It can be fractional.
     
     Returns:
       spectrum

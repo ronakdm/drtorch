@@ -6,11 +6,11 @@ Diropt is a library for distributionally robust optimization in PyTorch.
 
 Diropt requires PyTorch >= 1.6.0. Please go [here](https://pytorch.org/) for instructions 
 on how to install PyTorch based on your platform and hardware.
-
-Once Pytoch is installed you can install diropt by running in command line from the
-root folder
-
-```pip install -e .```
+Once Pytorch is installed you can install Diropt by running the following on the command line from the
+root folder:
+```
+pip install -e .
+```
 
 Additional dependencies to run the example in `examples/train_fashion_mnist.ipynb` can be installed using `pip install -e .[examples]`. To build the docs, additional dependencies can be run using `pip install -e .[docs]`.
 

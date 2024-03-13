@@ -3,6 +3,7 @@
 Diropt is a library for distributionally robust optimization in PyTorch.
 
 ## Installation
+
 Diropt requires PyTorch >= 1.6.0. Please go [here](https://pytorch.org/) for instructions 
 on how to install PyTorch based on your platform and hardware.
 
@@ -15,7 +16,22 @@ Additional dependencies to run the example in `examples/train_fashion_mnist.ipyn
 
 ## Quickstart
 
-A quickstart example is present in the docs `docs/source/quickstart.ipynb`.
+A detailed quickstart example is present in the docs `docs/source/quickstart.ipynb`. At a glance, the functionality is a follows. First, we construct a function that inputs a vector of losses and returns a probability distribution over elements in this loss vector.
+```
+>>> from diropt import make_spectral_risk_measure, make_extremile_spectrum
+>>> spectrum = make_superquantile_spectrum(batch_size, 2.0)
+>>> compute_sample_weight = make_spectral_risk_measure(spectrum, penalty="chi2", shift_cost=1.0)
+```
+Assume that we have computed a vector of losses based on a model output in PyTorch. We can then use the function above and back propagate through the weighted sum of losses.
+```
+>>> x, y = get_batch()
+>>> logits = model(x)
+>>> losses = torch.nn.functional.cross_entropy(logits, y, reduction="none")
+>>> with torch.no_grad():
+>>>     weights = compute_sample_weight(losses.cpu().numpy()).to(device)
+>>> loss = weights @ losses
+>>> loss.backward()
+```
 
 ## Documentation
 

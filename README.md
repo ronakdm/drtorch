@@ -15,11 +15,11 @@ Additional dependencies to run the example in `examples/train_fashion_mnist.ipyn
 
 ## Quickstart
 
-A quickstart example is present in the docs `docs/source/quicstart.ipynb`.
+A quickstart example is present in the docs `docs/source/quickstart.ipynb`.
 
 ## Documentation
 
-The documentation is available here TOOD
+The documentation is available [here](https://ronakdm.github.io/drtorch/).
 
 ## Contributing
 
@@ -31,9 +31,8 @@ We encourage and highly value community contributions.
 
 If you find this package useful, or you use it in your research, please cite:
 
-
     @inproceedings{mehta2023stochastic,
-      title={Stochastic optimization for spectral risk measures},
+      title={{Stochastic Optimization for Spectral Risk Measures}},
       author={Mehta, Ronak and Roulet, Vincent and Pillutla, Krishna and Liu, Lang and Harchaoui, Zaid},
       booktitle={International Conference on Artificial Intelligence and Statistics},
       pages={10112--10159},
@@ -41,9 +40,9 @@ If you find this package useful, or you use it in your research, please cite:
       organization={PMLR}
     }
 
-## Acknowledgments, license
+## Acknowledgments
 
-TODO
+## License
 
 
 

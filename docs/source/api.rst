@@ -1,5 +1,5 @@
-API
-===
+📖 API
+======
 
 .. currentmodule:: diropt
 

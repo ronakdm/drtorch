@@ -55,6 +55,7 @@ docs = [
     "sphinx-gallery>=0.14.0",
     "sphinx-collections>=0.0.1",
     "sphinx_contributors",
+    "seaborn"
 ]
 
 [tool.setuptools.packages.find]

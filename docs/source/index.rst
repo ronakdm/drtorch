@@ -5,8 +5,8 @@ Diropt
   :maxdepth: 2
   :caption: Contents:
   :hidden:
-   
-  quick_start
+
+  quickstart
 
   api
 

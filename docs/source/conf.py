@@ -20,7 +20,25 @@ extensions = [
   'sphinx.ext.autosummary',
   'sphinx.ext.intersphinx',
   'sphinx.ext.inheritance_diagram',
-  'sphinx.ext.napoleon'
+  'sphinx.ext.napoleon',
+  'myst_nb',  # This is used for the .ipynb notebooks
+]
+
+
+myst_enable_extensions = [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
 ]
 
 templates_path = ['_templates']

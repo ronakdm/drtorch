@@ -53,5 +53,4 @@ html_theme_options = {
     'show_toc_level': 2,
     'navigation_with_keys': False,
 }
-html_static_path = ['_static']
 html_title = "Diropt"

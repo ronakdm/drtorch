@@ -1,1 +1,11 @@
-furo==2021.11.16
+sphinx>=6.0.0
+sphinx_book_theme>=1.0.1
+sphinxcontrib-katex
+sphinx-autodoc-typehints
+ipython>=8.8.0
+myst-nb>=1.0.0
+matplotlib>=3.5.0
+sphinx-gallery>=0.14.0
+sphinx-collections>=0.0.1
+sphinx_contributors
+seaborn

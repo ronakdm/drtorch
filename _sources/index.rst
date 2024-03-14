@@ -11,6 +11,9 @@ observerd training data within each mini-batch inorder to robustify models again
 * Implementations of the superquantile/conditional value-at-risk (CVaR), extremile, and exponential spectral risk measures.
 * Implementations of the pool adjacent violators (PAV) algorithm for computing regularized spectral risk measures with Kullback-Leibler and Chi-Squared divergences.
 
+.. image:: ../fig/spectrum.png
+   :width: 100 %
+
 .. toctree::
   :maxdepth: 2
   :caption: Contents:
@@ -37,7 +40,7 @@ First, we construct a function that inputs a vector of losses and returns a prob
 
 .. code-block:: python
 
-  >>> from diropt import make_spectral_risk_measure, make_extremile_spectrum
+  >>> from diropt import make_spectral_risk_measure, make_superquantile_spectrum
   >>> spectrum = make_superquantile_spectrum(batch_size, 2.0)
   >>> compute_sample_weight = make_spectral_risk_measure(spectrum, penalty="chi2", shift_cost=1.0)
 
@@ -88,4 +91,8 @@ If you find this package useful, or you use it in your research, please cite:
 
 Acknowledgements
 ------------------
+
+This work was supported by NSF DMS-2023166, CCF-2019844, DMS-2134012, NIH, and the Office of the Director of National Intelligence (ODNI)’s IARPA program via 2022-22072200003. 
+Part of this work was done while Zaid Harchaoui was visiting the Simons Institute for the Theory of Computing. 
+The views and conclusions contained herein are those of the authors and should not be interpreted as representing the official views of ODNI, IARPA, or the U.S. Government.
 

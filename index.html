@@ -327,6 +327,7 @@ observerd training data within each mini-batch inorder to robustify models again
 <li><p>Implementations of the superquantile/conditional value-at-risk (CVaR), extremile, and exponential spectral risk measures.</p></li>
 <li><p>Implementations of the pool adjacent violators (PAV) algorithm for computing regularized spectral risk measures with Kullback-Leibler and Chi-Squared divergences.</p></li>
 </ul>
+<a class="reference internal image-reference" href="_images/spectrum.png"><img alt="_images/spectrum.png" src="_images/spectrum.png" style="width: 100%;" /></a>
 <div class="toctree-wrapper compound">
 </div>
 <section id="installation">
@@ -341,7 +342,7 @@ $<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </sp
 <section id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h2>
 <p>First, we construct a function that inputs a vector of losses and returns a probability distribution over elements in this loss vector.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">diropt</span> <span class="kn">import</span> <span class="n">make_spectral_risk_measure</span><span class="p">,</span> <span class="n">make_extremile_spectrum</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">diropt</span> <span class="kn">import</span> <span class="n">make_spectral_risk_measure</span><span class="p">,</span> <span class="n">make_superquantile_spectrum</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">make_superquantile_spectrum</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">compute_sample_weight</span> <span class="o">=</span> <span class="n">make_spectral_risk_measure</span><span class="p">(</span><span class="n">spectrum</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;chi2&quot;</span><span class="p">,</span> <span class="n">shift_cost</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
@@ -384,6 +385,9 @@ We encourage and highly value community contributions.</p>
 </section>
 <section id="acknowledgements">
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>This work was supported by NSF DMS-2023166, CCF-2019844, DMS-2134012, NIH, and the Office of the Director of National Intelligence (ODNI)’s IARPA program via 2022-22072200003.
+Part of this work was done while Zaid Harchaoui was visiting the Simons Institute for the Theory of Computing.
+The views and conclusions contained herein are those of the authors and should not be interpreted as representing the official views of ODNI, IARPA, or the U.S. Government.</p>
 </section>
 </section>
 

@@ -23,7 +23,7 @@ observerd training data within each mini-batch inorder to robustify models again
   api
 
 Installation
-------------------
+------------
 
 Once you have installed PyTorch >=1.6. (see `instructions <https://pytorch.org/get-started/locally/>`_), you can install Diropt by running
 
@@ -34,7 +34,7 @@ Once you have installed PyTorch >=1.6. (see `instructions <https://pytorch.org/g
     $ pip install -e .
 
 Quickstart
-------------------
+----------
 
 First, we construct a function that inputs a vector of losses and returns a probability distribution over elements in this loss vector.
 
@@ -60,7 +60,7 @@ A detailed quickstart guide is given in `docs/source/quicstart.ipynb`, whereas a
 
 
 Contributing
-------------------
+------------
 
 If you find any bugs, please raise an issue on GitHub.
 If you would like to contribute, please submit a pull request.
@@ -68,13 +68,13 @@ We encourage and highly value community contributions.
 
 
 Authors
-------------------
+-------
 
 This package is written and maintained by `Ronak Mehta <https://ronakdm.github.io/>`_.
 
 
 Cite
-------------------
+----
 
 If you find this package useful, or you use it in your research, please cite:
 
@@ -90,7 +90,7 @@ If you find this package useful, or you use it in your research, please cite:
     }
 
 Acknowledgements
-------------------
+----------------
 
 This work was supported by NSF DMS-2023166, CCF-2019844, DMS-2134012, NIH, and the Office of the Director of National Intelligence (ODNI)’s IARPA program via 2022-22072200003. 
 Part of this work was done while Zaid Harchaoui was visiting the Simons Institute for the Theory of Computing. 
